@@ -67,3 +67,6 @@ each arr proc = mapM_ proc arr >> return arr
 
 include :: (Eq a) => [a] -> a -> Bool
 include = flip elem
+
+inject :: [a] -> b -> (b -> a -> b) -> b
+inject arr acc proc = foldl proc acc arr
